@@ -1,0 +1,238 @@
+/* ========== Calculator Container ========== */
+#calculator-container {
+  width: 380px;
+  margin: 50px auto;
+  background: #f5f7fa;
+  border-radius: 20px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ========== Display Section ========== */
+.display {
+  width: 100%;
+  height: 60px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px 15px;
+  color: #333;
+  overflow-x: auto;
+}
+
+/* ========== Keypad Layout ========== */
+.keypad {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+/* ========== Buttons ========== */
+button {
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #eef2f6, #d9e3f0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #e2e8f0, #c9d6e3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background: linear-gradient(to top, #d4e1ef, #bfcde0);
+  transform: translateY(1px);
+}
+
+/* ========== Special Buttons ========== */
+button.equal {
+  background: linear-gradient(to bottom, #6ca5ff, #4d8fff);
+  color: white;
+  font-weight: bold;
+}
+
+button.equal:hover {
+  background: linear-gradient(to bottom, #5b97ff, #3e7df8);
+}
+
+button.function {
+  background: linear-gradient(to bottom, #f0f3f8, #dbe2ec);
+  color: #2b4f77;
+}
+
+/* ========== History Panel ========== */
+.history-panel {
+  margin-top: 15px;
+  width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #444;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== Scrollbar Style for History ========== */
+.history-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.history-panel::-webkit-scrollbar-thumb {
+  background: #b5c6e0;
+  border-radius: 10px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 400px) {
+  #calculator-container {
+    width: 90%;
+  }
+  button {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ===== Dark theme  ===== */
+
+.dark-theme {
+  /* fallback background (body) */
+  background: linear-gradient(180deg,#0f1410,#07100b) !important;
+}
+
+/* Calculator container in dark mode */
+.dark-theme #calculator-container,
+.dark-theme .calculator {
+  background: linear-gradient(180deg, #0f2a1a 0%, #092015 100%);
+  color: #e6ffee;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+  border-color: rgba(255,255,255,0.04);
+}
+
+/* Display / LCD */
+.dark-theme .display,
+.dark-theme #display {
+  background: linear-gradient(180deg,#0d2b1b,#062114);
+  color: #444;
+  box-shadow: inset 0 1px 6px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+/* === LCD Text Visibility Fix for Dark Mode === */
+body.dark-theme .display-screen {
+  background: linear-gradient(145deg, #0e331b, #071c0f); /* same darkish green background */
+  color: #17e05a; /* darker, richer green text */
+  font-weight: 600;
+  border: 1px solid #0f6b30;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); /* improves readability */
+}
+
+/* optional - for better history visibility in dark mode */
+body.dark-theme .history-panel {
+  background: #0d2b18;
+  color: #21cc65;
+  border-left: 2px solid #0f6b30;
+}
+
+/* Buttons in dark mode */
+.dark-theme button {
+  background: linear-gradient(180deg,#113822 0%,#0b2a1a 100%);
+  color: #dfffe6;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Function buttons slightly different */
+.dark-theme button.function {
+  background: linear-gradient(180deg,#1a4f37,#153f2c);
+  color: #e7ffef;
+}
+
+/* Equal button in dark mode */
+.dark-theme button.equal {
+  background: linear-gradient(180deg,#00b050,#00893b);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* history panel */
+.dark-theme .history,
+.dark-theme .history-panel {
+  background: linear-gradient(180deg,#0b2014,#061611);
+  color: #c8ffdc;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: inset 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* theme toggle button style (so it looks good inside calc) */
+.theme-toggle-btn {
+  margin-top: 12px;
+  width: 44px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(180deg,#f2f4f8,#e6e9f0);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* style when pressed (aria-pressed true) */
+.theme-toggle-btn[aria-pressed="true"] {
+  transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* ensure history scrollbar visible in dark mode */
+.dark-theme .history-panel::-webkit-scrollbar-thumb {
+  background: rgba(150,200,170,0.35);
+}
+
+
+/* Ensure calculator container can position absolute items */
+#calculator-container {
+  position: relative;
+}
+/* === Fix for Dark Theme LCD and History Text Visibility === */
+body.dark-theme .display-screen {
+  background: linear-gradient(145deg, #1b1b1b, #0e0e0e);
+  color: #00ff9d; /* bright neon green for good visibility */
+  border: 1px solid #00c36b;
+}
+
+body.dark-theme .history-panel {
+  background: #121212;
+  color: #444; /* soft greenish text for night mode */
+  border-left: 2px solid #00c36b;
+}
+
+body.dark-theme .history-panel p {
+  color: #baffdb; /* clear readable history entries */
+}
+
+body.dark-theme .keypad button {
+  background: #222;
+  color: #e6ffe6;
+}
+
+body.dark-theme .keypad button:hover {
+  background: #333;
+}
